@@ -29,10 +29,10 @@ export const InputText = styled.Text`
 export const MenuBox = styled.TouchableOpacity<MenuBoxProps>`
   ${({ theme, height, platform }) => css`
     height: ${height ? `${height + 100}px` : 0};
-    padding-top: ${platform === 'ios' ? '120px' : '80px'};
+    padding-top: ${platform === 'ios' ? '120px' : '100px'};
     align-items: center;
     position: absolute;
-    top: ${platform === 'ios' ? '-70px' : '-30px'};
+    top: ${platform === 'ios' ? '-70px' : '-50px'};
     bottom: 0;
     left: 0;
     right: 0;

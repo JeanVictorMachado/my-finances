@@ -4,6 +4,8 @@ export default {
     text_200: '#DFDFDF',
     text_300: '#BDBDBD',
 
+    green_300: '#006e00',
+
     border_color: '#4E4E4E',
 
     primary_color: '#313131',

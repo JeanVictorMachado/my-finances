@@ -1,9 +1,5 @@
 import styled, { css, DefaultTheme } from 'styled-components/native'
 
-type AvatarProps = {
-  img: string
-}
-
 type InputsOutputsValueProps = {
   balanceType: 'input' | 'output'
 }
@@ -53,9 +49,6 @@ export const Avatar = styled.Image`
     top: -${theme.spaces.xxsmall};
     right: ${theme.spaces.medium};
     border: ${theme.colors.border_color};
-    /* background-color: ${theme.colors.primary_color}; */
-    /* background-image: url(img); */
-    /* background-size: contain; */
   `}
 `
 

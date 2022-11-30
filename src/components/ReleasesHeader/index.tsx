@@ -1,4 +1,6 @@
+import { useMemo } from 'react'
 import { Platform } from 'react-native'
+import { formatCurrency } from 'react-native-format-currency'
 
 import { Select } from '@components/Select'
 import { months } from '@utils/variables/months'
@@ -7,7 +9,16 @@ import { Entypo, FontAwesome5 } from '@expo/vector-icons'
 
 import * as S from './styles'
 
-export const ReleasesHeader = () => {
+type ReleasesHeaderProps = {
+  inputsValue: number
+  outputsValue: number
+}
+
+export const ReleasesHeader = ({ inputsValue, outputsValue }: ReleasesHeaderProps) => {
+  const balanceValue = useMemo(() => {
+    return Math.round(inputsValue - outputsValue)
+  }, [inputsValue, outputsValue])
+
   return (
     <S.Container platform={Platform.OS}>
       <S.HeaderBox>
@@ -21,7 +32,9 @@ export const ReleasesHeader = () => {
 
         <S.BalanceBox>
           <S.BalanceTitle>Saldo</S.BalanceTitle>
-          <S.BalanceValue>R$ 10.000,00</S.BalanceValue>
+          <S.BalanceValue>
+            {formatCurrency({ amount: balanceValue, code: 'BRL' })[0]}
+          </S.BalanceValue>
         </S.BalanceBox>
 
         <S.InputsOutputsBox>
@@ -29,7 +42,9 @@ export const ReleasesHeader = () => {
             <FontAwesome5 name='arrow-alt-circle-up' size={40} color='green' />
             <S.InputsOutputsContent>
               <S.InputsOutputsTitle>Entradas</S.InputsOutputsTitle>
-              <S.InputsOutputsValue balanceType='input'>R$ 5.000,00</S.InputsOutputsValue>
+              <S.InputsOutputsValue balanceType='input'>
+                {formatCurrency({ amount: inputsValue, code: 'BRL' })[0]}
+              </S.InputsOutputsValue>
             </S.InputsOutputsContent>
           </S.InputsOutputs>
 
@@ -37,7 +52,9 @@ export const ReleasesHeader = () => {
             <FontAwesome5 name='arrow-alt-circle-down' size={40} color='red' />
             <S.InputsOutputsContent>
               <S.InputsOutputsTitle>Saídas</S.InputsOutputsTitle>
-              <S.InputsOutputsValue balanceType='output'>R$ 5.000,00</S.InputsOutputsValue>
+              <S.InputsOutputsValue balanceType='output'>
+                {formatCurrency({ amount: outputsValue, code: 'BRL' })[0]}
+              </S.InputsOutputsValue>
             </S.InputsOutputsContent>
           </S.InputsOutputs>
         </S.InputsOutputsBox>

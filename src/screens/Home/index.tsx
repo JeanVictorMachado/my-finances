@@ -5,7 +5,7 @@ import * as S from './styles'
 export const Home = () => {
   return (
     <S.Container>
-      <ReleasesHeader />
+      <ReleasesHeader inputsValue={14600.55} outputsValue={8250.5} />
     </S.Container>
   )
 }

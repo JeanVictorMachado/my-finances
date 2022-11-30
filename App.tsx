@@ -1,7 +1,8 @@
 import { ThemeProvider } from 'styled-components/native'
+import { NavigationContainer } from '@react-navigation/native'
 import { StatusBar } from 'expo-status-bar'
 
-import { Home } from '@screens/Home'
+import { Routes } from '@src/routes/index.routes'
 
 import theme from '@src/styles/theme'
 
@@ -10,7 +11,9 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <StatusBar style='light' translucent backgroundColor='transparent' />
 
-      <Home />
+      <NavigationContainer>
+        <Routes />
+      </NavigationContainer>
     </ThemeProvider>
   )
 }
