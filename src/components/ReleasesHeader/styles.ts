@@ -10,7 +10,7 @@ type ContainerProps = {
 
 export const Container = styled.View<ContainerProps>`
   ${({ theme, platform }) => css`
-    padding-top: ${platform === 'ios' ? '70px' : '50px'};
+    padding-top: ${platform === 'ios' ? '60px' : '40px'};
     padding-bottom: ${theme.spaces.medium};
     border-radius: ${theme.spaces.medium};
     background-color: ${theme.colors.secondary_color};
@@ -35,7 +35,7 @@ export const BalanceBox = styled.View`
 export const MenuBox = styled.View`
   ${({ theme }) => css`
     position: absolute;
-    top: -${theme.spaces.xsmall};
+    top: -${theme.spaces.xxsmall};
     left: 12px;
   `}
 `
@@ -112,5 +112,25 @@ export const InputsOutputsValue = styled.Text<InputsOutputsValueProps>`
 
     ${inputsOutputsValueModifiers[balanceType](theme)};
     ${inputsOutputsValueModifiers[balanceType](theme)};
+  `}
+`
+
+export const OpenButtomBox = styled.View`
+  ${({ theme }) => css`
+    width: 100%;
+    position: absolute;
+    bottom: -10px;
+    align-items: center;
+  `}
+`
+
+export const OpenButtom = styled.TouchableOpacity`
+  ${({ theme }) => css`
+    height: 20px;
+    width: 70px;
+    border-radius: 15px;
+    background-color: ${theme.colors.border_color};
+    align-items: center;
+    justify-content: center;
   `}
 `

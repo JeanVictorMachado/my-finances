@@ -12,6 +12,15 @@ export default {
     secondary_color: '#212121',
     background_color: '#0F0F0F',
   },
+  margins: {
+    xxsmall: '2px',
+    xsmall: '4px',
+    small: '8px',
+    medium: '16px',
+    large: '32px',
+    xlarge: '64px',
+    xxlarge: '128px',
+  },
   fonts: {
     light: 300,
     normal: 400,
@@ -39,6 +48,6 @@ export default {
     menu: 20,
     overlay: 30,
     modal: 40,
-    alwaysOnTop: 50,
+    alwaysOnTop: 90,
   },
 }

@@ -9,7 +9,7 @@ import theme from '@src/styles/theme'
 export default function App() {
   return (
     <ThemeProvider theme={theme}>
-      <StatusBar style='light' translucent backgroundColor='transparent' />
+      <StatusBar style='light' backgroundColor='#212121' />
 
       <NavigationContainer>
         <Routes />

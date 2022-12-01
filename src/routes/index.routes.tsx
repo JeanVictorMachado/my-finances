@@ -47,7 +47,7 @@ export const Routes = () => {
         component={New}
         options={{
           tabBarLabel: '',
-          tabBarIcon: ({ size, color }) => <ButtonNew />,
+          tabBarIcon: ({ focused, size, color }) => <ButtonNew color={color} focused={focused} />,
         }}
       />
 
