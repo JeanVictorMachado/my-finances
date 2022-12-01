@@ -2,7 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Platform } from 'react-native'
 
 import { Home } from '@screens/Home'
-import { New } from '@screens/New'
+import { NewRegister } from '@screens/NewRegister'
 import { Notification } from '@screens/Notification'
 import { Profile } from '@screens/Profile'
 import { Search } from '@screens/Search'
@@ -44,10 +44,10 @@ export const Routes = () => {
 
       <Tab.Screen
         name='new'
-        component={New}
+        component={NewRegister}
         options={{
           tabBarLabel: '',
-          tabBarIcon: ({ focused, size, color }) => <ButtonNew color={color} focused={focused} />,
+          tabBarIcon: ({ focused, color }) => <ButtonNew color={color} focused={focused} />,
         }}
       />
 

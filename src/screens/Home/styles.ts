@@ -12,6 +12,7 @@ export const Content = styled.View`
     padding-top: ${theme.spaces.large};
     padding-left: ${theme.spaces.medium};
     padding-right: ${theme.spaces.medium};
+    z-index: ${theme.layers.base};
   `}
 `
 

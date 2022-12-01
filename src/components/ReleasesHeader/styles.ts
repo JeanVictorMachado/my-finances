@@ -15,6 +15,7 @@ export const Container = styled.View<ContainerProps>`
     border-radius: ${theme.spaces.medium};
     background-color: ${theme.colors.secondary_color};
     position: relative;
+    z-index: ${theme.layers.menu}; ;
   `}
 `
 

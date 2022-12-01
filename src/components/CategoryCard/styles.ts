@@ -10,13 +10,13 @@ export const Container = styled.View`
     border-radius: ${theme.spaces.medium};
     background-color: ${theme.colors.secondary_color};
     margin-bottom: ${theme.margins.small};
-    z-index: ${theme.layers.base};
     justify-content: space-between;
+    z-index: ${theme.layers.base};
   `}
 `
 
 export const CategoryNameBox = styled.View`
-  ${({ theme }) => css`
+  ${() => css`
     flex-direction: row;
     justify-content: center;
     align-items: center;

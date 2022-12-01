@@ -10,7 +10,7 @@ import theme from '@src/styles/theme'
 export default function App() {
   return (
     <ThemeProvider theme={theme}>
-      <StatusBar style='light' backgroundColor='#212121' />
+      <StatusBar style='light' />
 
       <NavigationContainer>
         <ContextProviders>
