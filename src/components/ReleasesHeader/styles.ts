@@ -28,7 +28,7 @@ export const HeaderBox = styled.View`
 export const BalanceBox = styled.View`
   ${() => css`
     align-items: center;
-    padding-top: 24px;
+    padding-top: 16px;
   `}
 `
 

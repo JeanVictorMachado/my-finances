@@ -7,6 +7,8 @@ type MenuBoxProps = {
 
 export const InputBox = styled.TouchableOpacity`
   ${({ theme }) => css`
+    margin-top: -6px;
+    margin-bottom: 8px;
     padding-top: ${theme.spaces.small};
     padding-bottom: ${theme.spaces.xsmall};
     padding-left: ${theme.spaces.medium};
@@ -29,7 +31,7 @@ export const InputText = styled.Text`
 export const MenuBox = styled.TouchableOpacity<MenuBoxProps>`
   ${({ theme, height, platform }) => css`
     height: ${height ? `${height + 100}px` : 0};
-    padding-top: ${platform === 'ios' ? '120px' : '100px'};
+    padding-top: ${platform === 'ios' ? '100px' : '80px'};
     align-items: center;
     position: absolute;
     top: ${platform === 'ios' ? '-70px' : '-50px'};

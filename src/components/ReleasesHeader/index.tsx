@@ -7,7 +7,6 @@ import { months } from '@utils/variables/months'
 
 import { Entypo, FontAwesome5 } from '@expo/vector-icons'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import { Fontisto } from '@expo/vector-icons'
 
 import theme from '@src/styles/theme'
 import * as S from './styles'
@@ -18,7 +17,7 @@ type ReleasesHeaderProps = {
 }
 
 export const ReleasesHeader = ({ inputsValue, outputsValue }: ReleasesHeaderProps) => {
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
 
   const balanceValue = useMemo(() => {
     return Math.round(inputsValue - outputsValue)
@@ -46,7 +45,7 @@ export const ReleasesHeader = ({ inputsValue, outputsValue }: ReleasesHeaderProp
 
             <S.InputsOutputsBox>
               <S.InputsOutputs>
-                <FontAwesome5 name='arrow-alt-circle-up' size={40} color='green' />
+                <FontAwesome5 name='arrow-alt-circle-up' size={40} color='#006e00' />
                 <S.InputsOutputsContent>
                   <S.InputsOutputsTitle>Entradas</S.InputsOutputsTitle>
                   <S.InputsOutputsValue balanceType='input'>
@@ -56,7 +55,7 @@ export const ReleasesHeader = ({ inputsValue, outputsValue }: ReleasesHeaderProp
               </S.InputsOutputs>
 
               <S.InputsOutputs>
-                <FontAwesome5 name='arrow-alt-circle-down' size={40} color='red' />
+                <FontAwesome5 name='arrow-alt-circle-down' size={40} color='#cd0000' />
                 <S.InputsOutputsContent>
                   <S.InputsOutputsTitle>Saídas</S.InputsOutputsTitle>
                   <S.InputsOutputsValue balanceType='output'>
