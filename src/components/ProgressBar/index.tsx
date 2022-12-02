@@ -14,9 +14,9 @@ export const ProgressBar = ({ amountSpent, maxValue }: ProgressBarProps) => {
   }, [amountSpent, maxValue])
 
   const barColor = (porcent: number) => {
-    if (porcent <= 33.5) return '#006e00'
-    if (porcent > 33.5 && porcent <= 66.5) return '#a07300'
-    if (porcent > 66.5) return '#b50000'
+    if (porcent <= 33.5) return '#40873f'
+    if (porcent > 33.5 && porcent <= 66.5) return '#a99c0c'
+    if (porcent > 66.5) return '#d85631'
     return ''
   }
 

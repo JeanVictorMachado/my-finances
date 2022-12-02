@@ -45,7 +45,7 @@ export const ReleasesHeader = ({ inputsValue, outputsValue }: ReleasesHeaderProp
 
             <S.InputsOutputsBox>
               <S.InputsOutputs>
-                <FontAwesome5 name='arrow-alt-circle-up' size={40} color='#006e00' />
+                <FontAwesome5 name='arrow-alt-circle-up' size={40} color={theme.colors.green_300} />
                 <S.InputsOutputsContent>
                   <S.InputsOutputsTitle>Entradas</S.InputsOutputsTitle>
                   <S.InputsOutputsValue balanceType='input'>
@@ -55,7 +55,11 @@ export const ReleasesHeader = ({ inputsValue, outputsValue }: ReleasesHeaderProp
               </S.InputsOutputs>
 
               <S.InputsOutputs>
-                <FontAwesome5 name='arrow-alt-circle-down' size={40} color='#cd0000' />
+                <FontAwesome5
+                  name='arrow-alt-circle-down'
+                  size={40}
+                  color={theme.colors.orange_300}
+                />
                 <S.InputsOutputsContent>
                   <S.InputsOutputsTitle>Saídas</S.InputsOutputsTitle>
                   <S.InputsOutputsValue balanceType='output'>

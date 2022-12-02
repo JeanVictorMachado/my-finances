@@ -55,7 +55,7 @@ export const Avatar = styled.Image`
 
 export const BalanceTitle = styled.Text`
   ${({ theme }) => css`
-    color: ${theme.colors.text_300};
+    color: ${theme.colors.text_200};
   `}
 `
 
@@ -93,16 +93,16 @@ export const InputsOutputsContent = styled.View`
 
 export const InputsOutputsTitle = styled.Text`
   ${({ theme }) => css`
-    color: ${theme.colors.text_300};
+    color: ${theme.colors.text_200};
   `}
 `
 
 const inputsOutputsValueModifiers = {
-  input: () => css`
-    color: #006e00;
+  input: (theme: DefaultTheme) => css`
+    color: ${theme.colors.green_350};
   `,
   output: (theme: DefaultTheme) => css`
-    color: #cd0000;
+    color: ${theme.colors.orange_350};
   `,
 }
 
@@ -117,7 +117,7 @@ export const InputsOutputsValue = styled.Text<InputsOutputsValueProps>`
 `
 
 export const OpenButtomBox = styled.View`
-  ${({ theme }) => css`
+  ${() => css`
     width: 100%;
     position: absolute;
     bottom: -10px;
@@ -130,7 +130,7 @@ export const OpenButtom = styled.TouchableOpacity`
     height: 20px;
     width: 70px;
     border-radius: 15px;
-    background-color: ${theme.colors.border_color};
+    background-color: ${theme.colors.primary_color};
     align-items: center;
     justify-content: center;
   `}

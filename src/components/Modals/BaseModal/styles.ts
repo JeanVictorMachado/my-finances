@@ -1,4 +1,4 @@
-import { Animated } from 'react-native'
+import { Animated, Platform } from 'react-native'
 import styled, { css } from 'styled-components/native'
 
 export type CloseButtonContainerProps = {
@@ -13,15 +13,23 @@ export const Container = styled.View`
   `}
 `
 
+export const ReturnBox = styled.TouchableOpacity`
+  ${() => css`
+    margin-top: ${Platform.OS === 'ios' ? '60px' : '40px'};
+    margin-left: 16px;
+  `}
+`
+
 export const Content = styled(Animated.View)`
   ${({ theme }) => css`
     bottom: 0;
     position: absolute;
-    height: 90%;
+    height: 80%;
     background-color: ${theme.colors.secondary_color};
     width: 100%;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     padding: 32px;
+    padding-top: 16px;
   `}
 `

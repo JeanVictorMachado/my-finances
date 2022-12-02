@@ -1,5 +1,6 @@
+import theme from '@src/styles/theme'
 import React, { useState } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View, Platform } from 'react-native'
 import { Dropdown as Select } from 'react-native-element-dropdown'
 
 const data = [
@@ -22,24 +23,17 @@ export const Dropdown = ({ leftIcon, placeholder }: DropdownProps) => {
   const [value, setValue] = useState(null)
   const [isFocus, setIsFocus] = useState(false)
 
-  const renderLabel = () => {
-    if (value || isFocus) {
-      return (
-        <Text style={[styles.label, { color: isFocus ? 'gray' : '#4E4E4E' }]}>{placeholder}</Text>
-      )
-    }
-    return null
-  }
-
   return (
     <View style={styles.container}>
-      {renderLabel()}
       <Select
         style={[styles.dropdown, isFocus && { borderColor: 'gray' }]}
         placeholderStyle={styles.placeholderStyle}
         selectedTextStyle={styles.selectedTextStyle}
         inputSearchStyle={styles.inputSearchStyle}
         iconStyle={styles.iconStyle}
+        iconColor={theme.colors.text_100}
+        containerStyle={styles.containerStyle}
+        itemTextStyle={styles.itemTextStyle}
         data={data}
         search
         maxHeight={300}
@@ -61,41 +55,44 @@ export const Dropdown = ({ leftIcon, placeholder }: DropdownProps) => {
 }
 
 const styles = StyleSheet.create({
-  container: { marginBottom: 32 },
+  container: {
+    marginBottom: 16,
+  },
   dropdown: {
-    height: 50,
-    borderColor: '#4E4E4E',
-    borderWidth: 0.5,
-    borderRadius: 8,
-    paddingHorizontal: 16,
-    backgroundColor: '#212121',
+    height: 70,
+    backgroundColor: 'transparent',
+    borderBottomColor: theme.colors.border_color,
+    borderBottomWidth: 1,
   },
-  icon: {
-    marginRight: 5,
+  containerStyle: {
+    backgroundColor: theme.colors.border_color,
+    borderBottomLeftRadius: 16,
+    borderBottomRightRadius: 16,
+    marginTop: Platform.OS === 'ios' ? 0 : -29,
   },
-  label: {
-    position: 'absolute',
-    backgroundColor: '#212121',
-    left: 8,
-    top: -11,
-    zIndex: 999,
-    paddingHorizontal: 8,
-    fontSize: 14,
+  itemTextStyle: {
+    color: 'red',
   },
   placeholderStyle: {
     fontSize: 16,
-    color: '#4E4E4E',
+    color: theme.colors.text_300,
   },
   selectedTextStyle: {
-    fontSize: 16,
-    color: '#BDBDBD',
+    fontSize: 18,
+    color: theme.colors.text_100,
   },
   iconStyle: {
-    width: 24,
-    height: 24,
+    width: 30,
+    height: 30,
   },
   inputSearchStyle: {
     height: 40,
     fontSize: 16,
+  },
+  icon: {
+    marginRight: 5,
+  },
+  selectedStyle: {
+    borderRadius: 12,
   },
 })

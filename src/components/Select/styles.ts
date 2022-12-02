@@ -24,7 +24,7 @@ export const InputText = styled.Text`
   ${({ theme }) => css`
     font-size: ${theme.fonts.sizes.medium};
     margin-right: ${theme.spaces.small};
-    color: ${theme.colors.text_300};
+    color: ${theme.colors.text_100};
   `}
 `
 

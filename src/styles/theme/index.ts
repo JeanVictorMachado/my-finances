@@ -4,13 +4,16 @@ export default {
     text_200: '#DFDFDF',
     text_300: '#BDBDBD',
 
-    green_300: '#006e00',
+    green_300: '#4DA34D',
+    green_350: '#40873f',
+    orange_300: '#E85E36',
+    orange_350: '#d85631',
 
-    border_color: '#4E4E4E',
+    border_color: '#737373',
 
-    primary_color: '#313131',
-    secondary_color: '#212121',
-    background_color: '#0F0F0F',
+    primary_color: '#686868',
+    secondary_color: '#3C3C3C',
+    background_color: '#151515',
   },
   margins: {
     xxsmall: '2px',

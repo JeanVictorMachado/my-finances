@@ -9,6 +9,7 @@ import { Search } from '@screens/Search'
 
 import { ButtonNew } from '@components/ButtonNew'
 import { Entypo, Feather } from '@expo/vector-icons'
+import theme from '@src/styles/theme'
 
 const Tab = createBottomTabNavigator()
 
@@ -18,12 +19,12 @@ export const Routes = () => {
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: '#212121',
+          backgroundColor: theme.colors.secondary_color,
           borderTopColor: 'transparent',
           paddingTop: 4,
           paddingBottom: Platform.OS !== 'ios' ? 4 : 30,
         },
-        tabBarActiveTintColor: '#EFEFEF',
+        tabBarActiveTintColor: theme.colors.text_200,
       }}
     >
       <Tab.Screen

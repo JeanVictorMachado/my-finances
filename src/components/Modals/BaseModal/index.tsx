@@ -1,8 +1,11 @@
 import { ReactNode, useEffect, useMemo } from 'react'
 import { Animated, Dimensions } from 'react-native'
 
+import { FontAwesome5 } from '@expo/vector-icons'
+
 import { CloseButtonContainerProps } from './styles'
 import * as S from './styles'
+import theme from '@src/styles/theme'
 
 type LoginInModalProps = CloseButtonContainerProps & {
   children: ReactNode
@@ -63,6 +66,10 @@ export const BaseModal = ({ children, isOpen = false, isStep, onClose }: LoginIn
 
   return (
     <S.Container>
+      <S.ReturnBox>
+        <FontAwesome5 name='arrow-left' size={24} color={theme.colors.text_200} />
+      </S.ReturnBox>
+
       <S.Content
         style={[
           {
