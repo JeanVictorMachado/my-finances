@@ -49,7 +49,7 @@ export const Routes = () => {
         options={{
           tabBarLabel: '',
           tabBarStyle: { display: 'none' },
-          tabBarIcon: ({ focused, color }) => <RoundButton color={color} focused={focused} />,
+          tabBarIcon: () => <RoundButton color={theme.colors.text_100} focused={true} />,
         }}
       />
 

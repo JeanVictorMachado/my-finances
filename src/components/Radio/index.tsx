@@ -6,7 +6,7 @@ import RadioForm, {
 
 import * as S from './styles'
 
-type RadioProps = RadioButtonInputProps & {
+type RadioProps = Omit<RadioButtonInputProps, 'obj'> & {
   label: string
   marginLeft?: number
   onPress: () => void
@@ -18,6 +18,7 @@ export const Radio = ({ label, marginLeft, onPress, ...rest }: RadioProps) => {
       <RadioForm formHorizontal={true} animation={true}>
         <RadioButton labelHorizontal={true}>
           <RadioButtonInput
+            obj={[]}
             buttonSize={10}
             buttonOuterSize={22}
             buttonStyle={{ marginTop: 4 }}

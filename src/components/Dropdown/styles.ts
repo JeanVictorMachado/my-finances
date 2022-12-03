@@ -1,3 +1,51 @@
 import styled, { css } from 'styled-components/native'
+import { Dropdown } from 'react-native-element-dropdown'
+import { Platform } from 'react-native'
 
-export const Container = styled.View``
+export const Select = styled(Dropdown).attrs(({ theme }) => ({
+  maxHeight: 300,
+  containerStyle: {
+    backgroundColor: theme.colors.border_color,
+    borderRadius: 16,
+    marginTop: Platform.OS === 'ios' ? 4 : -20,
+    overflow: 'hidden',
+  },
+  itemContainerStyle: {
+    borderBottomWidth: 1,
+    borderBottomColor: theme.colors.primary_color,
+  },
+  itemTextStyle: {
+    color: theme.colors.text_100,
+  },
+  placeholderStyle: {
+    fontSize: 16,
+    color: theme.colors.border_color,
+  },
+  selectedTextStyle: {
+    fontSize: 18,
+    color: theme.colors.text_100,
+  },
+  inputSearchStyle: {
+    height: 40,
+    fontSize: 16,
+    borderRadius: 8,
+  },
+  iconStyle: {
+    width: 30,
+    height: 30,
+  },
+  icon: {
+    marginRight: 5,
+  },
+  iconColor: theme.colors.text_100,
+  selectedStyle: {
+    borderRadius: 12,
+  },
+}))`
+  ${({ theme }) => css`
+    height: 70px;
+    background-color: transparent;
+    border-bottom-color: ${theme.colors.border_color};
+    border-bottom-width: 1px;
+  `}
+`

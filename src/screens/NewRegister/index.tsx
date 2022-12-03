@@ -1,8 +1,11 @@
+import { useState } from 'react'
 import { View } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 
 import { BaseModal } from '@components/Modals/BaseModal'
 import { Dropdown } from '@components/Dropdown'
 import { RoundButton } from '@components/RoundButton'
+import { Radio } from '@components/Radio'
 
 import { Feather } from '@expo/vector-icons'
 import { FontAwesome5 } from '@expo/vector-icons'
@@ -11,19 +14,29 @@ import { MaterialIcons } from '@expo/vector-icons'
 import theme from '@src/styles/theme'
 
 import * as S from './styles'
-import { Radio } from '@components/Radio'
-import { useState } from 'react'
 
 type NewRegisterProps = {}
 
 export const NewRegister = ({}: NewRegisterProps) => {
+  const navigation = useNavigation()
+
   const [radioValue, setRadioValue] = useState(0)
+
+  const data = [
+    { label: 'Item 1', value: '1' },
+    { label: 'Item 2', value: '2' },
+    { label: 'Item 3', value: '3' },
+    { label: 'Item 4', value: '4' },
+    { label: 'Item 5', value: '5' },
+    { label: 'Item 6', value: '6' },
+    { label: 'Item 7', value: '7' },
+    { label: 'Item 8', value: '8' },
+  ]
 
   return (
     <BaseModal isOpen={true} onClose={() => []} onChange={() => []} isTextInput>
       <S.RadiosBox>
         <Radio
-          obj={[]}
           index={1}
           label='Entrada'
           isSelected={radioValue === 1}
@@ -33,7 +46,6 @@ export const NewRegister = ({}: NewRegisterProps) => {
         />
 
         <Radio
-          obj={[]}
           index={2}
           label='Saída'
           isSelected={radioValue === 2}
@@ -46,11 +58,9 @@ export const NewRegister = ({}: NewRegisterProps) => {
       <S.RadiosBorder />
 
       <Dropdown
-        data={[]}
-        labelField=''
-        valueField=''
-        onChange={() => []}
+        data={data}
         placeholder='Categoria'
+        onChange={() => []}
         leftIcon={
           <View style={{ marginRight: 23 }}>
             <MaterialIcons name='category' size={22} color={theme.colors.text_300} />
@@ -59,11 +69,9 @@ export const NewRegister = ({}: NewRegisterProps) => {
       />
 
       <Dropdown
-        data={[]}
-        labelField=''
-        valueField=''
-        onChange={() => []}
+        data={data}
         placeholder='Data do registro'
+        onChange={() => []}
         leftIcon={
           <View style={{ marginRight: 26 }}>
             <FontAwesome5 name='calendar-alt' size={20} color={theme.colors.text_300} />
@@ -72,11 +80,9 @@ export const NewRegister = ({}: NewRegisterProps) => {
       />
 
       <Dropdown
-        data={[]}
-        labelField=''
-        valueField=''
-        onChange={() => []}
+        data={data}
         placeholder='Descrição'
+        onChange={() => []}
         leftIcon={
           <View style={{ marginRight: 20 }}>
             <MaterialIcons name='text-fields' size={22} color={theme.colors.text_300} />
@@ -84,7 +90,10 @@ export const NewRegister = ({}: NewRegisterProps) => {
         }
       />
 
-      {/* <Input /> */}
+      <S.ReturnBox onPress={() => navigation.goBack()}>
+        <FontAwesome5 name='arrow-left' size={20} color={theme.colors.text_200} />
+        <S.ReturnText>Voltar</S.ReturnText>
+      </S.ReturnBox>
 
       <S.ButtomBox>
         <RoundButton

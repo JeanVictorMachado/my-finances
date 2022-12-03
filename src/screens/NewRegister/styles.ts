@@ -16,6 +16,23 @@ export const ButtomBox = styled.TouchableOpacity`
   `}
 `
 
+export const ReturnBox = styled.TouchableOpacity`
+  ${({ theme }) => css`
+    margin-top: 32px;
+    margin-left: 2px;
+    flex-direction: row;
+    align-items: center;
+  `}
+`
+
+export const ReturnText = styled.Text`
+  ${({ theme }) => css`
+    margin-left: 23px;
+    font-size: ${theme.fonts.sizes.large};
+    color: ${theme.colors.text_200};
+  `}
+`
+
 export const RadiosBox = styled.View`
   ${() => css`
     height: 70px;
