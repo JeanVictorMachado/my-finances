@@ -1,24 +1,55 @@
 import { View } from 'react-native'
-import { Dropdown } from '@components/Dropdown'
-import { Input } from '@components/Input'
-import { BaseModal } from '@components/Modals/BaseModal'
 
-import { MaterialIcons } from '@expo/vector-icons'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { BaseModal } from '@components/Modals/BaseModal'
+import { Dropdown } from '@components/Dropdown'
+import { RoundButton } from '@components/RoundButton'
+
+import { Feather } from '@expo/vector-icons'
 import { FontAwesome5 } from '@expo/vector-icons'
+import { MaterialIcons } from '@expo/vector-icons'
 
 import theme from '@src/styles/theme'
 
 import * as S from './styles'
+import { Radio } from '@components/Radio'
+import { useState } from 'react'
 
 type NewRegisterProps = {}
 
 export const NewRegister = ({}: NewRegisterProps) => {
+  const [radioValue, setRadioValue] = useState(0)
+
   return (
-    <BaseModal isOpen={true} onClose={() => []}>
-      {/* <S.NewRegisterText>Novo Registro</S.NewRegisterText> */}
+    <BaseModal isOpen={true} onClose={() => []} onChange={() => []} isTextInput>
+      <S.RadiosBox>
+        <Radio
+          obj={[]}
+          index={1}
+          label='Entrada'
+          isSelected={radioValue === 1}
+          onPress={() => setRadioValue(1)}
+          buttonOuterColor={theme.colors.green_300}
+          buttonInnerColor={theme.colors.green_300}
+        />
+
+        <Radio
+          obj={[]}
+          index={2}
+          label='Saída'
+          isSelected={radioValue === 2}
+          marginLeft={64}
+          onPress={() => setRadioValue(2)}
+          buttonOuterColor={theme.colors.orange_300}
+          buttonInnerColor={theme.colors.orange_300}
+        />
+      </S.RadiosBox>
+      <S.RadiosBorder />
 
       <Dropdown
+        data={[]}
+        labelField=''
+        valueField=''
+        onChange={() => []}
         placeholder='Categoria'
         leftIcon={
           <View style={{ marginRight: 23 }}>
@@ -26,15 +57,12 @@ export const NewRegister = ({}: NewRegisterProps) => {
           </View>
         }
       />
+
       <Dropdown
-        placeholder='Tipo de registro'
-        leftIcon={
-          <View style={{ marginRight: 16 }}>
-            <MaterialCommunityIcons name='bank-transfer' size={28} color={theme.colors.text_300} />
-          </View>
-        }
-      />
-      <Dropdown
+        data={[]}
+        labelField=''
+        valueField=''
+        onChange={() => []}
         placeholder='Data do registro'
         leftIcon={
           <View style={{ marginRight: 26 }}>
@@ -42,7 +70,12 @@ export const NewRegister = ({}: NewRegisterProps) => {
           </View>
         }
       />
+
       <Dropdown
+        data={[]}
+        labelField=''
+        valueField=''
+        onChange={() => []}
         placeholder='Descrição'
         leftIcon={
           <View style={{ marginRight: 20 }}>
@@ -52,6 +85,13 @@ export const NewRegister = ({}: NewRegisterProps) => {
       />
 
       {/* <Input /> */}
+
+      <S.ButtomBox>
+        <RoundButton
+          focused
+          icon={<Feather name='check-circle' size={30} color={theme.colors.text_100} />}
+        />
+      </S.ButtomBox>
     </BaseModal>
   )
 }

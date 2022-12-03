@@ -7,7 +7,7 @@ import { Notification } from '@screens/Notification'
 import { Profile } from '@screens/Profile'
 import { Search } from '@screens/Search'
 
-import { ButtonNew } from '@components/ButtonNew'
+import { RoundButton } from '@components/RoundButton'
 import { Entypo, Feather } from '@expo/vector-icons'
 import theme from '@src/styles/theme'
 
@@ -48,7 +48,8 @@ export const Routes = () => {
         component={NewRegister}
         options={{
           tabBarLabel: '',
-          tabBarIcon: ({ focused, color }) => <ButtonNew color={color} focused={focused} />,
+          tabBarStyle: { display: 'none' },
+          tabBarIcon: ({ focused, color }) => <RoundButton color={color} focused={focused} />,
         }}
       />
 

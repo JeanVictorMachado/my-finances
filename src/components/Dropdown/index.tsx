@@ -1,7 +1,8 @@
 import theme from '@src/styles/theme'
 import React, { useState } from 'react'
-import { StyleSheet, View, Platform } from 'react-native'
+import { StyleSheet, Platform } from 'react-native'
 import { Dropdown as Select } from 'react-native-element-dropdown'
+import { DropdownProps } from 'react-native-element-dropdown/lib/typescript/components/Dropdown/model'
 
 const data = [
   { label: 'Item 1', value: '1' },
@@ -14,50 +15,45 @@ const data = [
   { label: 'Item 8', value: '8' },
 ]
 
-type DropdownProps = {
+type DropdownComponentProps = DropdownProps & {
   leftIcon?: JSX.Element
-  placeholder?: string
 }
 
-export const Dropdown = ({ leftIcon, placeholder }: DropdownProps) => {
+export const Dropdown = ({ search, leftIcon, placeholder }: DropdownComponentProps) => {
   const [value, setValue] = useState(null)
   const [isFocus, setIsFocus] = useState(false)
 
   return (
-    <View style={styles.container}>
-      <Select
-        style={[styles.dropdown, isFocus && { borderColor: 'gray' }]}
-        placeholderStyle={styles.placeholderStyle}
-        selectedTextStyle={styles.selectedTextStyle}
-        inputSearchStyle={styles.inputSearchStyle}
-        iconStyle={styles.iconStyle}
-        iconColor={theme.colors.text_100}
-        containerStyle={styles.containerStyle}
-        itemTextStyle={styles.itemTextStyle}
-        data={data}
-        search
-        maxHeight={300}
-        labelField='label'
-        valueField='value'
-        placeholder={!isFocus ? placeholder : '...'}
-        searchPlaceholder='Buscar...'
-        value={value}
-        onFocus={() => setIsFocus(true)}
-        onBlur={() => setIsFocus(false)}
-        onChange={(item) => {
-          setValue(item.value)
-          setIsFocus(false)
-        }}
-        renderLeftIcon={() => leftIcon}
-      />
-    </View>
+    <Select
+      style={[styles.dropdown, isFocus && { borderColor: 'gray' }]}
+      placeholderStyle={styles.placeholderStyle}
+      selectedTextStyle={styles.selectedTextStyle}
+      inputSearchStyle={styles.inputSearchStyle}
+      iconStyle={styles.iconStyle}
+      iconColor={theme.colors.text_100}
+      containerStyle={styles.containerStyle}
+      itemTextStyle={styles.itemTextStyle}
+      itemContainerStyle={styles.itemContainerStyle}
+      data={data}
+      search={search}
+      maxHeight={300}
+      labelField='label'
+      valueField='value'
+      placeholder={!isFocus ? placeholder : '...'}
+      searchPlaceholder='Buscar...'
+      value={value}
+      onFocus={() => setIsFocus(true)}
+      onBlur={() => setIsFocus(false)}
+      onChange={(item) => {
+        setValue(item.value)
+        setIsFocus(false)
+      }}
+      renderLeftIcon={() => leftIcon}
+    />
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    marginBottom: 16,
-  },
   dropdown: {
     height: 70,
     backgroundColor: 'transparent',
@@ -69,13 +65,18 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 16,
     borderBottomRightRadius: 16,
     marginTop: Platform.OS === 'ios' ? 0 : -29,
+    overflow: 'hidden',
+  },
+  itemContainerStyle: {
+    borderBottomWidth: 1,
+    borderBottomColor: theme.colors.primary_color,
   },
   itemTextStyle: {
-    color: 'red',
+    color: theme.colors.text_100,
   },
   placeholderStyle: {
     fontSize: 16,
-    color: theme.colors.text_300,
+    color: theme.colors.border_color,
   },
   selectedTextStyle: {
     fontSize: 18,
@@ -88,6 +89,7 @@ const styles = StyleSheet.create({
   inputSearchStyle: {
     height: 40,
     fontSize: 16,
+    borderRadius: 8,
   },
   icon: {
     marginRight: 5,

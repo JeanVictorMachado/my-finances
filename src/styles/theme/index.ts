@@ -4,6 +4,7 @@ export default {
     text_200: '#DFDFDF',
     text_300: '#BDBDBD',
 
+    blue_300: '#006CA3',
     green_300: '#4DA34D',
     green_350: '#40873f',
     orange_300: '#E85E36',

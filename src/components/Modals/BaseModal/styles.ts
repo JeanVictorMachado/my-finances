@@ -10,6 +10,31 @@ export const Container = styled.View`
     width: 100%;
     height: 100%;
     background-color: ${theme.colors.background_color};
+    position: relative;
+  `}
+`
+
+export const EditableTextBox = styled.View`
+  ${({ theme }) => css`
+    flex-direction: row;
+    position: absolute;
+    left: 32px;
+    top: -60px;
+  `}
+`
+
+export const EditableText = styled.Text`
+  ${({ theme }) => css`
+    font-size: 40px;
+    margin-right: 16px;
+    color: ${theme.colors.text_100};
+  `}
+`
+
+export const TextInput = styled.TextInput`
+  ${({ theme }) => css`
+    font-size: 40px;
+    color: ${theme.colors.text_100};
   `}
 `
 

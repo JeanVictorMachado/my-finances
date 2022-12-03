@@ -1,21 +1,31 @@
 import { ReactNode, useEffect, useMemo } from 'react'
-import { Animated, Dimensions } from 'react-native'
+import { Animated, Dimensions, NativeSyntheticEvent, TextInputChangeEventData } from 'react-native'
 
 import { FontAwesome5 } from '@expo/vector-icons'
 
 import { CloseButtonContainerProps } from './styles'
-import * as S from './styles'
 import theme from '@src/styles/theme'
+import * as S from './styles'
 
 type LoginInModalProps = CloseButtonContainerProps & {
   children: ReactNode
   isOpen: boolean
+  isTextInput?: boolean
+  isReturnButtom?: boolean
   onClose: () => void
+  onChange: (value: NativeSyntheticEvent<TextInputChangeEventData>) => void
 }
 
 const { height } = Dimensions.get('window')
 
-export const BaseModal = ({ children, isOpen = false, isStep, onClose }: LoginInModalProps) => {
+export const BaseModal = ({
+  children,
+  isOpen = false,
+  isTextInput,
+  isReturnButtom,
+  onClose,
+  onChange,
+}: LoginInModalProps) => {
   const state = useMemo(() => {
     return {
       opacity: new Animated.Value(0),
@@ -66,9 +76,11 @@ export const BaseModal = ({ children, isOpen = false, isStep, onClose }: LoginIn
 
   return (
     <S.Container>
-      <S.ReturnBox>
-        <FontAwesome5 name='arrow-left' size={24} color={theme.colors.text_200} />
-      </S.ReturnBox>
+      {isReturnButtom && (
+        <S.ReturnBox>
+          <FontAwesome5 name='arrow-left' size={24} color={theme.colors.text_200} />
+        </S.ReturnBox>
+      )}
 
       <S.Content
         style={[
@@ -77,6 +89,17 @@ export const BaseModal = ({ children, isOpen = false, isStep, onClose }: LoginIn
           },
         ]}
       >
+        {isTextInput && (
+          <S.EditableTextBox>
+            <S.EditableText>R$</S.EditableText>
+            <S.TextInput
+              placeholder='0,00'
+              placeholderTextColor={theme.colors.primary_color}
+              onChange={onChange}
+            />
+          </S.EditableTextBox>
+        )}
+
         {children}
       </S.Content>
     </S.Container>
