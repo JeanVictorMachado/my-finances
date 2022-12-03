@@ -1,34 +1,21 @@
 import styled, { css } from 'styled-components/native'
+import { TextInput } from 'react-native-element-textinput'
 
-export type InputProps = {
-  error?: string | false | undefined
-}
-
-export const Container = styled.View`
-  position: relative;
-`
-
-export const Input = styled.TextInput.attrs({})`
+export const Input = styled(TextInput).attrs(({ theme }) => ({
+  inputStyle: {
+    fontSize: 16,
+    color: theme.colors.text_100,
+  },
+  iconStyle: {
+    tintColor: theme.colors.text_100,
+  },
+  placeholderTextColor: theme.colors.border_color,
+}))`
   ${({ theme }) => css`
-    width: 100%;
-    height: 40px;
-    font-size: 20px;
-  `}
-`
-
-export const InputBorder = styled.View<InputProps>`
-  ${({ theme, error }) => css`
-    width: 100%;
-    height: 2px;
-    background-color: ${!error ? theme.colors.border_color : 'red'};
-    margin-bottom: 16px;
-  `}
-`
-
-export const IconBox = styled.TouchableOpacity<InputProps>`
-  ${({ error }) => css`
-    position: absolute;
-    top: 14px;
-    right: ${error ? '40px' : '5px'};
+    height: 70px;
+    background-color: transparent;
+    border-bottom-color: ${theme.colors.border_color};
+    border-bottom-width: 1px;
+    padding-right: 5px;
   `}
 `

@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native'
 
 import { BaseModal } from '@components/Modals/BaseModal'
 import { Dropdown } from '@components/Dropdown'
+import { Input } from '@components/Input'
 import { RoundButton } from '@components/RoundButton'
 import { Radio } from '@components/Radio'
 
@@ -79,8 +80,7 @@ export const NewRegister = ({}: NewRegisterProps) => {
         }
       />
 
-      <Dropdown
-        data={data}
+      <Input
         placeholder='Descrição'
         onChange={() => []}
         leftIcon={

@@ -28,7 +28,7 @@ export const ReturnBox = styled.TouchableOpacity`
 export const ReturnText = styled.Text`
   ${({ theme }) => css`
     margin-left: 23px;
-    font-size: ${theme.fonts.sizes.large};
+    font-size: ${theme.fonts.sizes.medium};
     color: ${theme.colors.text_200};
   `}
 `
