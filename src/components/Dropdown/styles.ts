@@ -2,6 +2,16 @@ import styled, { css } from 'styled-components/native'
 import { Dropdown } from 'react-native-element-dropdown'
 import { Platform } from 'react-native'
 
+export type SelectProps = {
+  error?: string | false | undefined
+}
+
+export const Container = styled.View`
+  ${({ theme }) => css`
+    position: relative;
+  `}
+`
+
 export const Select = styled(Dropdown).attrs(({ theme }) => ({
   maxHeight: 300,
   containerStyle: {
@@ -41,11 +51,23 @@ export const Select = styled(Dropdown).attrs(({ theme }) => ({
   selectedStyle: {
     borderRadius: 12,
   },
-}))`
-  ${({ theme }) => css`
+}))<SelectProps>`
+  ${({ theme, error }) => css`
     height: 70px;
     background-color: transparent;
-    border-bottom-color: ${theme.colors.border_color};
+    border-bottom-color: ${!error ? theme.colors.border_color : 'red'};
     border-bottom-width: 1px;
+  `}
+`
+
+export const ErrorText = styled.Text`
+  ${({ theme }) => css`
+    font-size: ${theme.fonts.sizes.xsmall};
+    background-color: ${theme.colors.secondary_color};
+    color: red;
+    padding-left: 8px;
+    position: absolute;
+    bottom: -7px;
+    right: 0;
   `}
 `

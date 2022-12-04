@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useMemo } from 'react'
+import { ReactNode, useEffect, useMemo, useRef } from 'react'
 import { Animated, Dimensions, NativeSyntheticEvent, TextInputChangeEventData } from 'react-native'
 
 import { FontAwesome5 } from '@expo/vector-icons'
@@ -10,10 +10,9 @@ import * as S from './styles'
 type LoginInModalProps = CloseButtonContainerProps & {
   children: ReactNode
   isOpen: boolean
-  isTextInput?: boolean
   isReturnButtom?: boolean
-  onClose: () => void
-  onChange: (value: NativeSyntheticEvent<TextInputChangeEventData>) => void
+  inputTopModal?: JSX.Element
+  onChange?: (value: NativeSyntheticEvent<TextInputChangeEventData>) => void
 }
 
 const { height } = Dimensions.get('window')
@@ -21,10 +20,8 @@ const { height } = Dimensions.get('window')
 export const BaseModal = ({
   children,
   isOpen = false,
-  isTextInput,
   isReturnButtom,
-  onClose,
-  onChange,
+  inputTopModal,
 }: LoginInModalProps) => {
   const state = useMemo(() => {
     return {
@@ -89,17 +86,7 @@ export const BaseModal = ({
           },
         ]}
       >
-        {isTextInput && (
-          <S.EditableTextBox>
-            <S.EditableText>R$</S.EditableText>
-            <S.TextInput
-              placeholder='0,00'
-              placeholderTextColor={theme.colors.primary_color}
-              onChange={onChange}
-            />
-          </S.EditableTextBox>
-        )}
-
+        {inputTopModal}
         {children}
       </S.Content>
     </S.Container>

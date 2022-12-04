@@ -20,6 +20,6 @@ export const ContentTitle = styled.Text`
   ${({ theme }) => css`
     font-size: ${theme.fonts.sizes.medium};
     margin-bottom: ${theme.spaces.medium};
-    color: ${theme.colors.text_300};
+    color: ${theme.colors.text_200};
   `}
 `

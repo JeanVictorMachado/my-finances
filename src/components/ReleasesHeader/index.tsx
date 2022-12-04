@@ -5,7 +5,7 @@ import { formatCurrency } from 'react-native-format-currency'
 import { Select } from '@components/Select'
 import { months } from '@utils/variables/months'
 
-import { Entypo, FontAwesome5 } from '@expo/vector-icons'
+import { FontAwesome5 } from '@expo/vector-icons'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 import theme from '@src/styles/theme'
@@ -26,9 +26,13 @@ export const ReleasesHeader = ({ inputsValue, outputsValue }: ReleasesHeaderProp
   return (
     <S.Container platform={Platform.OS}>
       <S.HeaderBox>
-        <S.MenuBox>
-          <Entypo name='menu' size={35} color={theme.colors.border_color} />
-        </S.MenuBox>
+        <S.OpenButtom onPress={() => setIsOpen(!isOpen)}>
+          {isOpen ? (
+            <MaterialCommunityIcons name='eye-off' size={24} color={theme.colors.text_300} />
+          ) : (
+            <MaterialCommunityIcons name='eye' size={24} color={theme.colors.text_300} />
+          )}
+        </S.OpenButtom>
 
         <Select options={months} />
 
@@ -71,20 +75,6 @@ export const ReleasesHeader = ({ inputsValue, outputsValue }: ReleasesHeaderProp
           </>
         )}
       </S.HeaderBox>
-
-      <S.OpenButtomBox>
-        <S.OpenButtom onPress={() => setIsOpen(!isOpen)}>
-          {isOpen ? (
-            <MaterialCommunityIcons
-              name='eye-off'
-              size={16}
-              color={theme.colors.background_color}
-            />
-          ) : (
-            <MaterialCommunityIcons name='eye' size={16} color={theme.colors.background_color} />
-          )}
-        </S.OpenButtom>
-      </S.OpenButtomBox>
     </S.Container>
   )
 }

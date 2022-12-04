@@ -1,25 +1,53 @@
-import React, { useState } from 'react'
+import { TextInputProps } from 'react-native'
+import { InputProps } from './styles'
+import theme from '@src/styles/theme'
 
 import * as S from './styles'
 
-type InputComponentProps = {
-  leftIcon?: JSX.Element
-  placeholder?: string
-  onChange?: (value: string) => void
-}
+type InputComponentProps = TextInputProps &
+  InputProps & {
+    type?: 'top-modal'
+    leftIcon?: JSX.Element
+    placeholder?: string
+    onChange?: (value: string) => void
+  }
 
-export const Input = ({ leftIcon, placeholder, onChange }: InputComponentProps) => {
-  const [value, setValue] = useState('')
-
+export const Input = ({
+  type,
+  leftIcon,
+  placeholder,
+  value,
+  error,
+  onChange,
+  ...rest
+}: InputComponentProps) => {
   return (
-    <S.Input
-      value={value}
-      placeholder={placeholder}
-      onChangeText={(text) => {
-        setValue(text)
-        onChange && onChange(text)
-      }}
-      renderLeftIcon={() => leftIcon}
-    />
+    <>
+      {type !== 'top-modal' ? (
+        <S.Input
+          value={value}
+          placeholder={placeholder}
+          onChangeText={(text) => {
+            onChange && onChange(text)
+          }}
+          renderLeftIcon={() => leftIcon}
+        />
+      ) : (
+        <S.EditableTextBox>
+          <S.EditableText>R$</S.EditableText>
+          <S.TextInputTop
+            value={value}
+            placeholder='0,00'
+            keyboardType='numeric'
+            returnKeyType='done'
+            placeholderTextColor={theme.colors.primary_color}
+            onChangeText={onChange}
+            {...rest}
+          />
+
+          {error && <S.ErrorText>{error}</S.ErrorText>}
+        </S.EditableTextBox>
+      )}
+    </>
   )
 }

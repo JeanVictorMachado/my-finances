@@ -1,8 +1,8 @@
 export default {
   colors: {
-    text_100: '#EFEFEF',
-    text_200: '#DFDFDF',
-    text_300: '#BDBDBD',
+    text_100: '#F3F3F3',
+    text_200: '#EFEFEF',
+    text_300: '#E3E3E3',
 
     blue_300: '#006CA3',
     green_300: '#4DA34D',
@@ -10,10 +10,10 @@ export default {
     orange_300: '#E85E36',
     orange_350: '#d85631',
 
-    border_color: '#737373',
+    border_color: '#8A8A8A',
 
-    primary_color: '#686868',
-    secondary_color: '#3C3C3C',
+    primary_color: '#707070',
+    secondary_color: '#494949',
     background_color: '#151515',
   },
   margins: {

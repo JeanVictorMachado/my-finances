@@ -1,5 +1,9 @@
 import styled, { css } from 'styled-components/native'
 
+type RadiosBorderProps = {
+  error?: string | false | undefined
+}
+
 export const NewRegisterText = styled.Text`
   ${({ theme }) => css`
     margin-bottom: ${theme.margins.large};
@@ -41,10 +45,23 @@ export const RadiosBox = styled.View`
   `}
 `
 
-export const RadiosBorder = styled.View`
-  ${({ theme }) => css`
+export const RadiosBorder = styled.View<RadiosBorderProps>`
+  ${({ theme, error }) => css`
     height: 1px;
     width: 100%;
-    background-color: ${theme.colors.border_color};
+    background-color: ${!error ? theme.colors.border_color : 'red'};
+    position: relative;
+  `}
+`
+
+export const ErrorText = styled.Text`
+  ${({ theme }) => css`
+    font-size: ${theme.fonts.sizes.xsmall};
+    background-color: ${theme.colors.secondary_color};
+    color: red;
+    padding-left: 8px;
+    position: absolute;
+    top: -9px;
+    right: 0;
   `}
 `

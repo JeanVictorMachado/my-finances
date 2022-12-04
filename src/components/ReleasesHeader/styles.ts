@@ -1,3 +1,4 @@
+import { Platform } from 'react-native'
 import styled, { css, DefaultTheme } from 'styled-components/native'
 
 type InputsOutputsValueProps = {
@@ -116,22 +117,11 @@ export const InputsOutputsValue = styled.Text<InputsOutputsValueProps>`
   `}
 `
 
-export const OpenButtomBox = styled.View`
-  ${() => css`
-    width: 100%;
-    position: absolute;
-    bottom: -10px;
-    align-items: center;
-  `}
-`
-
 export const OpenButtom = styled.TouchableOpacity`
   ${({ theme }) => css`
-    height: 20px;
-    width: 70px;
-    border-radius: 15px;
-    background-color: ${theme.colors.primary_color};
-    align-items: center;
-    justify-content: center;
+    padding: 8px;
+    position: absolute;
+    top: ${Platform.OS === 'ios' ? '-8px' : '-6px'};
+    left: 8px;
   `}
 `
