@@ -38,6 +38,7 @@ export const Dropdown = ({
           onChange(item.value)
         }}
         renderLeftIcon={() => leftIcon}
+        disable={!data.length}
       />
 
       <S.ErrorText>{error}</S.ErrorText>

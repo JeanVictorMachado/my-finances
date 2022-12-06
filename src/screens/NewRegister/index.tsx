@@ -21,23 +21,23 @@ import theme from '@src/styles/theme'
 
 import * as S from './styles'
 
-enum MovementType {
+export enum MovementType {
   income = '1',
   expense = '2',
 }
 
-type NewRegisterProps = {}
-
-export const NewRegister = ({}: NewRegisterProps) => {
+export const NewRegister = () => {
   const navigation = useNavigation()
-  const { categoriesValues } = useTransactions()
+  const { categoriesValues, registers, setRegisterType, setRegister } = useTransactions()
 
   const { values, errors, touched, setValues, setTouched, resetForm, handleSubmit } = useFormik({
     initialValues,
     validationSchema,
     onSubmit: (values) => {
-      console.log('values: ', values)
+      setTouched({})
       resetForm()
+
+      setRegister([...registers, values])
     },
   })
 
@@ -61,7 +61,10 @@ export const NewRegister = ({}: NewRegisterProps) => {
             isSelected={values.type === '1'}
             buttonOuterColor={theme.colors.green_300}
             buttonInnerColor={theme.colors.green_300}
-            onPress={() => setValues({ ...values, type: MovementType.income })}
+            onPress={() => {
+              setRegisterType(1)
+              setValues({ ...values, type: MovementType.income })
+            }}
           />
 
           <Radio
@@ -71,7 +74,10 @@ export const NewRegister = ({}: NewRegisterProps) => {
             marginLeft={64}
             buttonOuterColor={theme.colors.orange_300}
             buttonInnerColor={theme.colors.orange_300}
-            onPress={() => setValues({ ...values, type: MovementType.expense })}
+            onPress={() => {
+              setRegisterType(2)
+              setValues({ ...values, type: MovementType.expense })
+            }}
           />
         </S.RadiosBox>
         <S.RadiosBorder error={errors.type && touched.type && errors.type}>

@@ -1,3 +1,4 @@
+import theme from '@src/styles/theme'
 import { useMemo } from 'react'
 import { formatCurrency } from 'react-native-format-currency'
 
@@ -14,9 +15,9 @@ export const ProgressBar = ({ amountSpent, maxValue }: ProgressBarProps) => {
   }, [amountSpent, maxValue])
 
   const barColor = (porcent: number) => {
-    if (porcent <= 33.5) return '#40873f'
-    if (porcent > 33.5 && porcent <= 66.5) return '#a99c0c'
-    if (porcent > 66.5) return '#d85631'
+    if (porcent <= 33.5) return theme.colors.green_300
+    if (porcent > 33.5 && porcent <= 66.5) return theme.colors.yellow_300
+    if (porcent > 66.5) return theme.colors.orange_300
     return ''
   }
 

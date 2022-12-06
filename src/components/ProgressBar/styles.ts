@@ -13,7 +13,7 @@ export const Content = styled.View`
   ${({ theme }) => css`
     height: 5px;
     border-radius: ${theme.spaces.medium};
-    background-color: ${theme.colors.primary_color};
+    background-color: ${theme.colors.background_color};
     position: relative;
   `}
 `
@@ -39,6 +39,6 @@ export const valueText = styled.Text`
   ${({ theme }) => css`
     margin-bottom: 4px;
     font-size: ${theme.fonts.sizes.xsmall};
-    color: ${theme.colors.text_300};
+    color: ${theme.colors.text_200};
   `}
 `

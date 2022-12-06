@@ -1,20 +1,24 @@
 export default {
   colors: {
-    text_100: '#F3F3F3',
-    text_200: '#EFEFEF',
-    text_300: '#E3E3E3',
+    text_100: '#E8EAF4',
+    text_200: '#CDD0E2',
+    text_300: '#979CB5',
 
     blue_300: '#006CA3',
-    green_300: '#4DA34D',
-    green_350: '#40873f',
-    orange_300: '#E85E36',
-    orange_350: '#d85631',
+    green_300: '#72A972',
+    green_350: '#649564',
+    yellow_300: '#d4bd61',
+    orange_300: '#E67858',
+    orange_350: '#CC6B4F',
 
-    border_color: '#8A8A8A',
+    border_color: '#60626F',
 
-    primary_color: '#707070',
-    secondary_color: '#494949',
-    background_color: '#151515',
+    primary_color: '#3D3F49',
+    secondary_color: '#28292F',
+    background_color: '#191920',
+
+    gradient: ['#3D3F49', '#28292F'],
+    gradientButtom: ['#28292F', '#28292F'],
   },
   margins: {
     xxsmall: '2px',

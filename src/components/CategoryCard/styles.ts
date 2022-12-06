@@ -1,6 +1,11 @@
 import styled, { css } from 'styled-components/native'
+import { LinearGradient } from 'expo-linear-gradient'
 
-export const Container = styled.View`
+export const Container = styled(LinearGradient).attrs(({ theme }) => ({
+  colors: theme.colors.gradient,
+  start: { x: 1, y: 0 },
+  end: { x: 1, y: 1 },
+}))`
   ${({ theme }) => css`
     height: 80px;
     padding-top: 14px;
@@ -28,6 +33,6 @@ export const CategoryName = styled.Text`
     text-align: center;
     font-size: ${theme.fonts.sizes.medium};
     margin-left: ${theme.margins.small};
-    color: ${theme.colors.text_300};
+    color: ${theme.colors.text_200};
   `}
 `

@@ -1,4 +1,5 @@
-import { ReactNode, useEffect, useMemo, useRef } from 'react'
+import { ReactNode, useCallback, useEffect, useMemo } from 'react'
+import { useFocusEffect } from '@react-navigation/native'
 import { Animated, Dimensions, NativeSyntheticEvent, TextInputChangeEventData } from 'react-native'
 
 import { FontAwesome5 } from '@expo/vector-icons'
@@ -63,13 +64,15 @@ export const BaseModal = ({
     ]).start()
   }
 
-  useEffect(() => {
-    if (isOpen) {
-      openModal()
-    } else {
-      closeModal()
-    }
-  }, [isOpen])
+  useFocusEffect(
+    useCallback(() => {
+      if (isOpen) {
+        openModal()
+      } else {
+        closeModal()
+      }
+    }, [isOpen]),
+  )
 
   return (
     <S.Container>

@@ -7,7 +7,7 @@ export type SelectProps = {
 }
 
 export const Container = styled.View`
-  ${({ theme }) => css`
+  ${() => css`
     position: relative;
   `}
 `
