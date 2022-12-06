@@ -14,7 +14,7 @@ export const BalanceContainer = styled(LinearGradient).attrs(({ theme }) => ({
     width: 100%;
     padding: 16px;
     border-radius: 16px;
-    margin-top: 32px;
+    margin-top: 24px;
     background-color: ${theme.colors.secondary_color};
     flex-direction: row;
     justify-content: space-between;

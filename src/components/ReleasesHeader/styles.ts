@@ -1,4 +1,3 @@
-import { Platform } from 'react-native'
 import styled, { css } from 'styled-components/native'
 
 type ContainerProps = {
@@ -19,6 +18,13 @@ export const HeaderBox = styled.View`
   ${() => css`
     padding-left: 16px;
     padding-right: 16px;
+  `}
+`
+
+export const Content = styled.View`
+  ${() => css`
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
   `}
 `
@@ -28,9 +34,6 @@ export const Avatar = styled.Image`
     width: 40px;
     height: 40px;
     border-radius: ${theme.spaces.large};
-    position: absolute;
-    top: -${theme.spaces.xxsmall};
-    right: ${theme.spaces.medium};
     border: ${theme.colors.border_color};
   `}
 `
@@ -38,8 +41,5 @@ export const Avatar = styled.Image`
 export const OpenButtom = styled.TouchableOpacity`
   ${() => css`
     padding: 8px;
-    position: absolute;
-    top: ${Platform.OS === 'ios' ? '-8px' : '-6px'};
-    left: 8px;
   `}
 `

@@ -7,7 +7,7 @@ export const Container = styled(LinearGradient).attrs(({ theme }) => ({
   end: { x: 1, y: 1 },
 }))`
   ${({ theme }) => css`
-    height: 80px;
+    height: 70px;
     padding-top: 14px;
     padding-left: ${theme.spaces.medium};
     padding-right: ${theme.spaces.medium};
@@ -17,6 +17,14 @@ export const Container = styled(LinearGradient).attrs(({ theme }) => ({
     margin-bottom: ${theme.margins.small};
     justify-content: space-between;
     z-index: ${theme.layers.base};
+  `}
+`
+
+export const Content = styled.View`
+  ${() => css`
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   `}
 `
 
@@ -33,6 +41,28 @@ export const CategoryName = styled.Text`
     text-align: center;
     font-size: ${theme.fonts.sizes.medium};
     margin-left: ${theme.margins.small};
+    color: ${theme.colors.text_200};
+  `}
+`
+
+export const ValuesBox = styled.View`
+  ${() => css`
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  `}
+`
+
+export const SeparateText = styled.Text`
+  ${({ theme }) => css`
+    color: ${theme.colors.text_300};
+  `}
+`
+
+export const valueText = styled.Text`
+  ${({ theme }) => css`
+    margin-top: 3px;
+    font-size: ${theme.fonts.sizes.small};
     color: ${theme.colors.text_200};
   `}
 `

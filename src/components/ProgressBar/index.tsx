@@ -23,11 +23,6 @@ export const ProgressBar = ({ amountSpent, maxValue }: ProgressBarProps) => {
 
   return (
     <S.Container>
-      <S.ValuesBox>
-        <S.valueText>{formatCurrency({ amount: amountSpent, code: 'BRL' })[0]}</S.valueText>
-        <S.valueText>{formatCurrency({ amount: maxValue, code: 'BRL' })[0]}</S.valueText>
-      </S.ValuesBox>
-
       <S.Content>
         <S.Bar barPorcent={porcentValue} color={barColor(porcentValue)} />
       </S.Content>

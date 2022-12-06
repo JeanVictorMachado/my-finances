@@ -9,23 +9,34 @@ import { Select } from '@components/Select'
 import theme from '@src/styles/theme'
 import * as S from './styles'
 
-export const ReleasesHeader = () => {
+type ReleasesHeaderProps = {
+  onShowCard: (param: boolean) => void
+}
+
+export const ReleasesHeader = ({ onShowCard }: ReleasesHeaderProps) => {
   const [isOpen, setIsOpen] = useState(true)
 
   return (
     <S.Container platform={Platform.OS}>
       <S.HeaderBox>
-        <S.OpenButtom onPress={() => setIsOpen(!isOpen)}>
-          {isOpen ? (
-            <MaterialCommunityIcons name='eye-off' size={24} color={theme.colors.text_200} />
-          ) : (
-            <MaterialCommunityIcons name='eye' size={24} color={theme.colors.text_200} />
-          )}
-        </S.OpenButtom>
+        <S.Content>
+          <S.OpenButtom
+            onPress={() => {
+              setIsOpen(!isOpen)
+              onShowCard(!isOpen)
+            }}
+          >
+            {isOpen ? (
+              <MaterialCommunityIcons name='eye-off' size={24} color={theme.colors.text_200} />
+            ) : (
+              <MaterialCommunityIcons name='eye' size={24} color={theme.colors.text_200} />
+            )}
+          </S.OpenButtom>
 
-        <Select options={months} />
+          {/* <Select options={months} /> */}
 
-        <S.Avatar source={require('@assets/images/jean-image.jpeg')} />
+          <S.Avatar source={require('@assets/images/jean-image.jpeg')} />
+        </S.Content>
 
         {isOpen && <BalanceCard />}
       </S.HeaderBox>

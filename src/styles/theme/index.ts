@@ -5,11 +5,11 @@ export default {
     text_300: '#979CB5',
 
     blue_300: '#006CA3',
-    green_300: '#72A972',
-    green_350: '#649564',
-    yellow_300: '#d4bd61',
-    orange_300: '#E67858',
-    orange_350: '#CC6B4F',
+    green_300: '#81BDE0',
+    green_350: '#479BCB',
+    yellow_300: '#D5B076',
+    orange_300: '#E36684',
+    orange_350: '#CF4063',
 
     border_color: '#60626F',
 
