@@ -24,7 +24,10 @@ export const ProgressBar = ({ amountSpent, maxValue }: ProgressBarProps) => {
   return (
     <S.Container>
       <S.Content>
-        <S.Bar barPorcent={porcentValue} color={barColor(porcentValue)} />
+        <S.Bar
+          barPorcent={amountSpent >= maxValue ? 100 : porcentValue}
+          color={barColor(porcentValue)}
+        />
       </S.Content>
     </S.Container>
   )

@@ -1,11 +1,11 @@
-import { ReactNode, useMemo } from 'react'
-import { Text } from 'react-native'
+import { ReactNode, useEffect, useMemo } from 'react'
+import { Alert } from 'react-native'
 
 import { ProgressBar, ProgressBarProps } from '@components/ProgressBar'
+import { formatCurrency } from 'react-native-format-currency'
 import useTransactions from '@hooks/Transactions/UseTransactions'
 
 import * as S from './styles'
-import { formatCurrency } from 'react-native-format-currency'
 
 type CategoryCard = ProgressBarProps & {
   categoryId: string
@@ -17,7 +17,6 @@ export const CategoryCard = ({
   categoryId,
   categoryName,
   categoryIcon,
-  amountSpent,
   maxValue,
 }: CategoryCard) => {
   const { registers } = useTransactions()
@@ -28,6 +27,11 @@ export const CategoryCard = ({
 
   const totalValue = filterRegisters.reduce((a, b) => a + Number(b.value), 0)
 
+  useEffect(() => {
+    if (totalValue >= maxValue)
+      Alert.alert('Limite atingido', 'Você atingiu o limite dessa categoria, pare de gastar!')
+  }, [totalValue])
+
   return (
     <S.Container>
       <S.Content>
@@ -37,7 +41,7 @@ export const CategoryCard = ({
         </S.CategoryNameBox>
 
         <S.ValuesBox>
-          <S.valueText>{formatCurrency({ amount: amountSpent, code: 'BRL' })[0]}</S.valueText>
+          <S.valueText>{formatCurrency({ amount: totalValue, code: 'BRL' })[0]}</S.valueText>
           <S.SeparateText>{`  ${'|'}  `}</S.SeparateText>
           <S.valueText>{formatCurrency({ amount: maxValue, code: 'BRL' })[0]}</S.valueText>
         </S.ValuesBox>
