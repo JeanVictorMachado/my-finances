@@ -4,6 +4,7 @@ interface CategoryProps {
 }
 
 interface CreateRegisterProps {
+  _id?: string
   category: string
   date: string
   description?: string
@@ -11,9 +12,11 @@ interface CreateRegisterProps {
   value: string
 }
 
-export interface ITransactionsContext {
+export interface IRegistersContext {
   categoriesValues: CategoryProps[]
   registers: CreateRegisterProps[]
+  isLoaging: boolean
   setRegisterType: (param: number) => void
-  setRegister: (params: CreateRegisterProps[]) => void
+  handleGetRegisters: () => void
+  handleNewRegister: (params: CreateRegisterProps) => void
 }

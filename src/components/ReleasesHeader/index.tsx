@@ -33,8 +33,6 @@ export const ReleasesHeader = ({ onShowCard }: ReleasesHeaderProps) => {
             )}
           </S.OpenButtom>
 
-          {/* <Select options={months} /> */}
-
           <S.Avatar source={require('@assets/images/jean-image.jpeg')} />
         </S.Content>
 

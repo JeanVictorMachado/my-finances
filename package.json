@@ -37,7 +37,9 @@
     "react-native-simple-radio-button": "^2.7.4",
     "react-native-svg": "13.4.0",
     "react-native-toast-message": "^2.1.5",
+    "react-native-uuid": "^2.0.1",
     "react-test-renderer": "^18.2.0",
+    "realm": "^11.3.0",
     "styled-components": "^5.3.6",
     "victory-native": "^36.6.8",
     "yup": "^0.32.11"

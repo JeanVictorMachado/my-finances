@@ -4,13 +4,13 @@ import { FontAwesome5 } from '@expo/vector-icons'
 import { formatCurrency } from 'react-native-format-currency'
 import { MovementType } from '@screens/NewRegister'
 import { PieChart } from '@components/PieChart'
-import useTransactions from '@hooks/Transactions/UseTransactions'
+import useRegisters from '@hooks/Registers/UseRegisters'
 
 import theme from '@src/styles/theme'
 import * as S from './styles'
 
 export const BalanceCard = () => {
-  const { registers } = useTransactions()
+  const { registers } = useRegisters()
 
   const incomes = useMemo(() => {
     const filterIncomes = registers.filter((register) => register.type === MovementType.income)

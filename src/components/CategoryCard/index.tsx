@@ -3,7 +3,7 @@ import { Alert } from 'react-native'
 
 import { ProgressBar, ProgressBarProps } from '@components/ProgressBar'
 import { formatCurrency } from 'react-native-format-currency'
-import useTransactions from '@hooks/Transactions/UseTransactions'
+import useRegisters from '@hooks/Registers/UseRegisters'
 
 import * as S from './styles'
 
@@ -19,13 +19,18 @@ export const CategoryCard = ({
   categoryIcon,
   maxValue,
 }: CategoryCard) => {
-  const { registers } = useTransactions()
+  const { registers } = useRegisters()
 
-  const filterRegisters = useMemo(() => {
-    return registers.filter((register) => register.category === categoryId)
+  const [filterRegisters, totalValue] = useMemo(() => {
+    const filterRegisters = !!registers.length
+      ? registers?.filter((register) => register.category === categoryId)
+      : []
+    const totalValue = !!filterRegisters.length
+      ? filterRegisters?.reduce((a, b) => a + Number(b.value), 0)
+      : 0
+
+    return [filterRegisters, totalValue]
   }, [registers])
-
-  const totalValue = filterRegisters.reduce((a, b) => a + Number(b.value), 0)
 
   useEffect(() => {
     if (totalValue >= maxValue)
@@ -47,7 +52,7 @@ export const CategoryCard = ({
         </S.ValuesBox>
       </S.Content>
 
-      <ProgressBar amountSpent={!filterRegisters.length ? 0 : totalValue} maxValue={maxValue} />
+      <ProgressBar amountSpent={!filterRegisters?.length ? 0 : totalValue} maxValue={maxValue} />
     </S.Container>
   )
 }

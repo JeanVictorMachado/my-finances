@@ -1,7 +1,7 @@
 import { ChildrenProps } from '@src/@types/Shared'
 
-import { TransactionsProvider } from './Transactions/TransactionsProvider'
+import { RegistersProvider } from './Registers/RegistersProvider'
 
 export const ContextProviders = ({ children }: ChildrenProps) => {
-  return <TransactionsProvider>{children}</TransactionsProvider>
+  return <RegistersProvider>{children}</RegistersProvider>
 }

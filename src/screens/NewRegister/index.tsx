@@ -11,7 +11,7 @@ import { RoundButton } from '@components/RoundButton'
 import { initialValues } from '@utils/screens/newRegister/form/initialValues'
 import { formattedDate } from '@utils/formattedDate'
 import { validationSchema } from '@utils/screens/newRegister/form/validationSchema'
-import useTransactions from '@hooks/Transactions/UseTransactions'
+import useTransactions from '@hooks/Registers/UseRegisters'
 
 import { Feather } from '@expo/vector-icons'
 import { FontAwesome5 } from '@expo/vector-icons'
@@ -28,7 +28,7 @@ export enum MovementType {
 
 export const NewRegister = () => {
   const navigation = useNavigation()
-  const { categoriesValues, registers, setRegisterType, setRegister } = useTransactions()
+  const { categoriesValues, registers, setRegisterType, handleNewRegister } = useTransactions()
 
   const { values, errors, touched, setValues, setTouched, resetForm, handleSubmit } = useFormik({
     initialValues,
@@ -37,7 +37,7 @@ export const NewRegister = () => {
       setTouched({})
       resetForm()
 
-      setRegister([...registers, values])
+      handleNewRegister(values)
     },
   })
 
