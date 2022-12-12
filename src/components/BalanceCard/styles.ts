@@ -6,7 +6,7 @@ type InputsOutputsValueProps = {
 }
 
 export const BalanceContainer = styled(LinearGradient).attrs(({ theme }) => ({
-  colors: theme.colors.gradient,
+  colors: theme.colors.gradientBalance,
   start: { x: 1, y: 0 },
   end: { x: 1, y: 1 },
 }))`

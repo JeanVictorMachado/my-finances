@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components/native'
-import { getBottomSpace } from 'react-native-iphone-x-helper'
 
 export const Container = styled.View`
   ${({ theme }) => css`
@@ -17,10 +16,25 @@ export const Content = styled.View`
   `}
 `
 
+export const TitleContainer = styled.View`
+  ${({ theme }) => css`
+    margin-bottom: ${theme.spaces.large};
+    flex-direction: row;
+    justify-content: center;
+  `}
+`
+
+export const BorderLeft = styled.View`
+  ${({ theme }) => css`
+    width: 5px;
+    margin-right: 8px;
+    background-color: ${theme.colors.border_color};
+  `}
+`
+
 export const ContentTitle = styled.Text`
   ${({ theme }) => css`
-    font-size: ${theme.fonts.sizes.medium};
-    margin-bottom: ${theme.spaces.medium};
-    color: ${theme.colors.text_300};
+    font-size: ${theme.fonts.sizes.xlarge};
+    color: ${theme.colors.text_200};
   `}
 `

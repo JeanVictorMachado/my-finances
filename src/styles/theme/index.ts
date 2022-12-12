@@ -13,12 +13,13 @@ export default {
 
     border_color: '#60626F',
 
-    primary_color: '#3D3F49',
-    secondary_color: '#28292F',
+    primary_color: '#34353E',
+    secondary_color: '#212227',
     background_color: '#191920',
 
-    gradient: ['#3D3F49', '#28292F'],
-    gradientButtom: ['#28292F', '#28292F'],
+    gradient: ['#34353E', '#212227'],
+    gradientBalance: ['#191920', '#191920'],
+    gradientButtom: ['#212227', '#212227'],
   },
   margins: {
     xxsmall: '2px',

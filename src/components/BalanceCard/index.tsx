@@ -12,19 +12,23 @@ import * as S from './styles'
 export const BalanceCard = () => {
   const { registers } = useRegisters()
 
-  const incomes = useMemo(() => {
-    const filterIncomes = registers.filter((register) => register.type === MovementType.income)
-    return filterIncomes.reduce((a, b) => a + Number(b.value), 0)
-  }, [registers])
+  const [incomes, expenses, balanceValue] = useMemo(() => {
+    const filterIncomes = !!registers.length
+      ? registers.filter((register) => register.type === MovementType.income)
+      : []
+    const incomes = !!filterIncomes.length
+      ? filterIncomes.reduce((a, b) => a + Number(b.value), 0)
+      : 0
+    const filterExpenses = !!registers?.length
+      ? registers.filter((register) => register.type === MovementType.expense)
+      : []
+    const expenses = !!filterExpenses.length
+      ? filterExpenses.reduce((a, b) => a + Number(b.value), 0)
+      : 0
+    const balanceValue = Math.round(incomes - expenses)
 
-  const expenses = useMemo(() => {
-    const filterIncomes = registers.filter((register) => register.type === MovementType.expense)
-    return filterIncomes.reduce((a, b) => a + Number(b.value), 0)
+    return [incomes, expenses, balanceValue]
   }, [registers])
-
-  const balanceValue = useMemo(() => {
-    return Math.round(incomes - expenses)
-  }, [incomes, expenses])
 
   return (
     <S.BalanceContainer>

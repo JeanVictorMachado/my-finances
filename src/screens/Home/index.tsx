@@ -24,7 +24,10 @@ export const Home = () => {
       <ReleasesHeader onShowCard={setIsBalanceCard} />
 
       <S.Content>
-        <S.ContentTitle>Gastos por categoria</S.ContentTitle>
+        <S.TitleContainer>
+          <S.BorderLeft />
+          <S.ContentTitle>Gastos por categoria</S.ContentTitle>
+        </S.TitleContainer>
 
         <FlatList
           data={expensesCategories}
@@ -41,7 +44,7 @@ export const Home = () => {
           )}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{
-            paddingBottom: getBottomSpace() + (isBalanceCard ? 380 : 140),
+            paddingBottom: getBottomSpace() + (isBalanceCard ? 410 : 190),
           }}
         />
       </S.Content>
